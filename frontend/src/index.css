@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Dark athletic background */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    /* Card - slightly lighter dark */
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Electric Orange (energetic, sporty) */
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 55%;
+
+    /* Accent - same as primary for consistency */
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Error red */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success green */
+    --success: 145 80% 42%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning yellow */
+    --warning: 45 100% 50%;
+    --warning-foreground: 0 0% 10%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 24 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 24 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 24 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .drop-zone {
+    @apply border-2 border-dashed border-border rounded-lg p-8 transition-all duration-300 hover:border-primary/50;
+  }
+
+  .drop-zone-active {
+    @apply border-primary bg-primary/10 scale-[1.01];
+  }
+
+  .recording-pulse {
+    animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .glass-panel {
+    @apply bg-card/90 backdrop-blur-xl border border-border/50 rounded-xl shadow-2xl;
+  }
+}
